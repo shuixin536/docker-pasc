@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM shuixin536/ubuntu16.04
 
 
 RUN apt-get update && apt-get -y upgrade
@@ -51,20 +51,17 @@ RUN ANACONDA_VERSION=5.1.0 \
 && ln -s /usr/local/anaconda3/ /opt/anaconda3 \
 && rm Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
 
-
 #RUN mkdir -p /opt/selenium && \
 #    curl -sS https://selenium-release.storage.googleapis.com/3.3/selenium-server-standalone-3.3.1.jar -o /opt/selenium/selenium-server-standalone.jar
-
-
-ADD requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
-
 
 ENV DISPLAY :99
 ENV CHROME_BIN /usr/bin/google-chrome
 ENV PATH=/opt/anaconda3/bin:$PATH
 # Jupyter Notebook port
 EXPOSE 8888
+
+ADD requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
