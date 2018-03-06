@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install build-essential
-RUN apt-get -y install git vim curl wget xvfb unzip
+RUN apt-get -y install git vim curl wget xvfb unzip sudo
 RUN apt-get -y install libpq-dev apt-transport-https
 RUN apt-get -y install zlib1g-dev \
                        libssl-dev \
@@ -54,6 +54,11 @@ RUN ANACONDA_VERSION=5.1.0 \
 
 #RUN mkdir -p /opt/selenium && \
 #    curl -sS https://selenium-release.storage.googleapis.com/3.3/selenium-server-standalone-3.3.1.jar -o /opt/selenium/selenium-server-standalone.jar
+
+
+ADD requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
 
 ENV DISPLAY :99
 ENV CHROME_BIN /usr/bin/google-chrome
