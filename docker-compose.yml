@@ -1,3 +1,31 @@
+# 1.install python 3-anaconda
+# >ANACONDA_VERSION=5.1.0
+# >curl -L https://repo.continuum.io/archive/Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -o Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
+# >/bin/bash Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -b -p /opt/anaconda
+# >vi /etc/profile
+# at the end of file, append
+# PATH="/opt/anaconda/bin:${PATH}"
+# export PATH
+# ESC  ->  wq   ->
+# >source /etc/profile
+# >export $PATH
+# 2. refence python to anaconda
+# >mv /usr/bin/python /usr/bin/python_old
+# >ln -s /opt/anaconda/bin/python /usr/bin/python
+# 3. install pip
+# (centos)>yum -y install python-pip
+# (ubuntu)>apt-get install python-pip
+# (centos)
+# #install setup tools
+# >curl https://bitbucket.org/pypa/setuptools/downloads/ez_setup.py | python -
+# #install pip
+# >curl https://bootstrap.pypa.io/get-pip.py | python -
+# 3. install docker-compose
+# Note that Compose 1.5.2 requires Docker 1.7.1 or later
+# docker --version
+# pip uninstall docker-compose
+# pip install docker-compose==1.5.2
+# 4. docker-compose up
 app:
    image: shuixin536/pasc
    ports:
