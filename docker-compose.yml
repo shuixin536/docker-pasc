@@ -27,7 +27,7 @@
 # pip install docker-compose==1.5.2
 # 4. docker-compose up
 app:
-   image: shuixin536/pasc
+   image: shuixin536/docker-pasc
    ports:
       - "10022:22"
    links:
