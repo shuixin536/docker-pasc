@@ -27,9 +27,9 @@
 # pip uninstall docker-compose
 # pip install docker-compose==1.5.2
 # 4. runging the applicaiton
-# >docker-compose up
+# >docker-compose up -d -f xxx.yml
 # OR
-# >docker-compose up -d    =>running in background
+# >docker-compose up    =>running in forground
 # docker-compose ps
 # docker-compose logs
 # docker-compose stop
@@ -43,11 +43,6 @@ app:
    links:
        - mysqldb
    command: /bin/bash
-   environment:
-       DB_HOST: db
-       DB_DATABASE: laravel
-       DB_USERNAME: root
-       DB_PASSWORD: root
 mysqldb:
    image: centurylink/mysql
    ports:
