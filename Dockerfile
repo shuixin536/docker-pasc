@@ -30,5 +30,5 @@ RUN echo "$CHROMEDRIVER_SHA256  chromedriver_linux64.zip" | sha256sum -c -
 RUN unzip "chromedriver_linux64.zip" -d /usr/local/bin \
   && rm "chromedriver_linux64.zip"
  
-
+CMD ["/bin/bash"]
 
