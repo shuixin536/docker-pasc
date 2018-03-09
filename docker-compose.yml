@@ -1,0 +1,19 @@
+python:
+    image: polona/switch-test
+    ports:
+        - 8080:8080
+    links:
+        - db
+    environment:
+        DB_HOST: db
+        DB_DATABASE: laravel
+        DB_USERNAME: root
+        DB_PASSWORD: root
+database:
+    image: centurylink/mysql
+    ports:
+        - 3306:3306
+    environment:
+        MYSQL_DATABASE: bitdreams
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
