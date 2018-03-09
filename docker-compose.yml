@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # 1.install python 3-anaconda
 # >ANACONDA_VERSION=5.1.0
 # >curl -L https://repo.continuum.io/archive/Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -o Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
@@ -25,13 +26,23 @@
 # docker --version
 # pip uninstall docker-compose
 # pip install docker-compose==1.5.2
-# 4. docker-compose up
+# 4. runging the applicaiton
+# >docker-compose up
+# OR
+# >docker-compose up -d    =>running in background
+# docker-compose ps
+# docker-compose logs
+# docker-compose stop
+# docker-compose restart
 app:
    image: shuixin536/docker-pasc
    ports:
       - "10022:22"
+   # auto add record in /etc/hosts
+   # 172.17.2.186  mysqldb
    links:
        - mysqldb
+   command: /bin/bash
    environment:
        DB_HOST: db
        DB_DATABASE: laravel
@@ -40,6 +51,7 @@ app:
 mysqldb:
    image: centurylink/mysql
    ports:
+       # same as "docker run -p"
        - "13306:3306"
    environment:
        MYSQL_ROOT_PASSWORD: root
