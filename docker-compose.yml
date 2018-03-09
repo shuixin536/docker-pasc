@@ -42,7 +42,8 @@ app:
    # 172.17.2.186  mysqldb
    links:
        - mysqldb
-   command: /bin/bash
+   #command: /bin/bash
+   tty: true
 mysqldb:
    image: centurylink/mysql
    ports:
