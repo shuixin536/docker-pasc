@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libgconf-2-4 \
     git \
     ca-certificates \
-    curl
-#    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    curl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD xvfb-chromium /usr/bin/xvfb-chromium
 RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
