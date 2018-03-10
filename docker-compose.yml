@@ -13,6 +13,8 @@
 # 2. refence python to anaconda
 # >mv /usr/bin/python /usr/bin/python_old
 # >ln -s /opt/anaconda/bin/python /usr/bin/python
+> vi /usr/bin/yum
+> modify the first line: #!/usr/bin/python    ------>  #!/usr/bin/python_old
 # 3. install pip
 # (centos)>yum -y install python-pip
 # (ubuntu)>apt-get install python-pip
@@ -34,6 +36,7 @@
 # docker-compose logs
 # docker-compose stop
 # docker-compose restart
+# 5. docker exec -it container_id /bin/bash
 app:
    image: shuixin536/docker-pasc
    ports:
