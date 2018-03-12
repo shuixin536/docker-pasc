@@ -1,0 +1,40 @@
+# Delete every Docker containers
+# Must be run first because images are attached to containers
+docker rm -f $(docker ps -a -q)
+
+# Delete every Docker image
+docker rmi -f $(docker images -q)
+
+
+
+
+docker rmi -f $(docker images | grep '^<none>' | awk '{print $3}')
+
+docker rm -f $(docker ps -a -q)
+
+
+
+
+
+docker volume rm $(docker volume ls -qf dangling=true)
+
+$ docker volume ls -qf dangling=true
+docker volume ls
+
+
+
+
+docker pull will fail if docker service is not running. Make sure it is running by
+
+:~$ ps aux | grep docker
+root     18745  1.7  0.9 284104 13976 ?    Ssl  21:19   0:01 /usr/bin/docker -d
+If it is not running, you can start it by
+
+sudo service docker start
+
+For Ubuntu 15 and above use
+
+sudo systemctl start docker
+
+
+docker-error-var-run-docker-sock-no-such-file-or-directory

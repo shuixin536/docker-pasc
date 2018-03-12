@@ -37,6 +37,7 @@
 # docker-compose stop
 # docker-compose restart
 # 5. docker exec -it container_id /bin/bash
+# docker start container_id
 app:
    image: shuixin536/docker-pasc
    ports:

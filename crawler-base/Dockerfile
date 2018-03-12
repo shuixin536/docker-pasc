@@ -6,7 +6,8 @@ USER root
 # Install wget and build-essential
 RUN apt-get update && apt-get install -y \
   build-essential \
-  wget
+  wget \
+  curl
 
 ##############################################################################
 # anaconda python
@@ -15,9 +16,10 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && \
     apt-get install -y wget bzip2 ca-certificates
 
-RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh && \
-    /bin/bash Anaconda3-4.4.0-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Anaconda3-4.4.0-Linux-x86_64.sh
+RUN ANACONDA_VERSION=5.1.0 
+RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh && \
+    /bin/bash Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -b -p /opt/conda && \
+    rm Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
 
 ENV PATH /opt/conda/bin:$PATH
 RUN pip install --upgrade pip
