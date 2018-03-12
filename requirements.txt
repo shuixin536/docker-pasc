@@ -1,4 +1,5 @@
 selenium==3.5.0
 pyvirtualdisplay
 kafka
+pymysql
 
