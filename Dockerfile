@@ -7,7 +7,8 @@ USER root
 RUN apt-get update && apt-get install -y \
   build-essential \
   wget \
-  curl
+  curl \
+  git
 
 ##############################################################################
 # anaconda python
@@ -25,9 +26,12 @@ RUN ANACONDA_VERSION=5.1.0 \
     
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV PATH /opt/conda/bin:$PATH
-RUN pip install --upgrade pip
+ENV PATH="/opt/conda/bin:${PATH}"
 
+RUN	rm -rf /usr/bin/python && \
+		ln -s /opt/conda/bin/python /usr/bin/python
+		
+RUN pip install --upgrade pip
 
 ADD requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
