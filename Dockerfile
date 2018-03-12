@@ -16,10 +16,12 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && \
     apt-get install -y wget bzip2 ca-certificates
 
-RUN ANACONDA_VERSION=5.1.0 
-RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh && \
-    /bin/bash Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
+RUN ANACONDA_VERSION=5.1.0 \
+&& curl -L https://repo.continuum.io/archive/Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh \
+                                            -o Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh \
+\
+&& /bin/bash Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh -b -p /opt/conda \
+&& rm Anaconda3-${ANACONDA_VERSION}-Linux-x86_64.sh
     
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
