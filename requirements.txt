@@ -2,4 +2,7 @@ selenium==3.8
 pyvirtualdisplay
 kafka
 pymysql
-
+django
+djangorestframework
+drfdocs
+django-rest-swagger
