@@ -59,6 +59,7 @@ nginx-proxy:
        - app
    volumes:
      - /var/run/docker.sock:/tmp/docker.sock
+     - /root/docker-data:/data
 mysqldb:
    image: centurylink/mysql
    ports:
