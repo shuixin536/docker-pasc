@@ -49,16 +49,6 @@ app:
        - mysqldb
    #command: /bin/bash
    tty: true
-mysqldb:
-   image: centurylink/mysql
-   ports:
-       # same as "docker run -p"
-       - "13306:3306"
-   environment:
-       MYSQL_ROOT_PASSWORD: root
-       MYSQL_DATABASE: bitdreams
-       MYSQL_USER: root
-       MYSQL_PASSWORD: root
 nginx-proxy:
    image: jwilder/nginx-proxy
    container_name: nginx-proxy
@@ -72,4 +62,14 @@ nginx-proxy:
      - ../docker-data:/data
 #     - ../docker-data/nginx/certs:/etc/nginx/certs
      - ../docker-data/nginx/conf.d/webotc.conf:/etc/nginx/conf.d/webotc.conf
+mysqldb:
+   image: centurylink/mysql
+   ports:
+       # same as "docker run -p"
+       - "13306:3306"
+   environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: bitdreams
+       MYSQL_USER: root
+       MYSQL_PASSWORD: root
      
