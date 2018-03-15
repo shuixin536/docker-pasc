@@ -41,8 +41,9 @@
 app:
    image: shuixin536/docker-pasc
    ports:
+      - "10022:22"
+      - "4444:4444"
       - "5900:5900"
-      - "18000:8000"
    # auto add record in /etc/hosts
    # 172.17.2.186  mysqldb
    links:
