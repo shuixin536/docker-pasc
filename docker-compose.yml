@@ -59,9 +59,9 @@ nginx-proxy:
        - app
    volumes:
      - /var/run/docker.sock:/tmp/docker.sock
-     - /root/docker-pasc/docker-data:/data
-#     - /root/docker-pasc/docker-data/nginx/certs:/etc/nginx/certs
-     - /root/docker-pasc/docker-data/nginx/conf.d/webotc.conf:/etc/nginx/conf.d/webotc.conf
+     - /root/docker-data:/data
+#     - /root/docker-data/nginx/certs:/etc/nginx/certs
+     - /root/docker-data/nginx/conf.d/webotc.conf:/etc/nginx/conf.d/webotc.conf
 mysqldb:
    image: centurylink/mysql
    ports:
