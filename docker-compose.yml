@@ -50,7 +50,7 @@ app:
    #command: /bin/bash
    tty: true
 nginx-proxy:
-   image: jwilder/nginx-proxy
+   image: 'jwilder/nginx-proxy:latest'
    container_name: nginx-proxy
    ports:
     - "10080:80"
