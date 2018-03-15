@@ -38,4 +38,6 @@ RUN pip install -r /requirements.txt
 
 WORKDIR /home/seluser
 
+EXPOSE 8000
+
 USER seluser
