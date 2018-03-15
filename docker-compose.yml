@@ -41,8 +41,6 @@
 app:
    image: shuixin536/docker-pasc
    ports:
-      - "10022:22"
-      - "4444:4444"
       - "5900:5900"
       - "18000:8000"
    # auto add record in /etc/hosts
@@ -61,3 +59,17 @@ mysqldb:
        MYSQL_DATABASE: bitdreams
        MYSQL_USER: root
        MYSQL_PASSWORD: root
+nginx-proxy:
+   image: jwilder/nginx-proxy
+   container_name: nginx-proxy
+   ports:
+    - "10080:80"
+    - "10443:443"
+   links:
+       - app
+   volumes:
+     - /var/run/docker.sock:/tmp/docker.sock
+     - ../docker-data:/data
+#     - ../docker-data/nginx/certs:/etc/nginx/certs
+     - ../docker-data/nginx/conf.d/webotc.conf:/etc/nginx/conf.d/webotc.conf
+     
