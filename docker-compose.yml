@@ -52,6 +52,8 @@ app:
 nginx-proxy:
    image: 'jwilder/nginx-proxy:latest'
    container_name: nginx-proxy
+   restart_policy: always
+   recreate: no
    ports:
     - "10080:80"
     - "10443:443"
