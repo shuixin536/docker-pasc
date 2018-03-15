@@ -58,7 +58,7 @@ nginx-proxy:
    links:
        - app
    volumes:
-     - /root/docker-data/nginx/conf.d:/etc/nginx/conf.d:ro
+#     - /root/docker-data/nginx/conf.d:/etc/nginx/conf.d:ro
      - /root/docker-data:/data
      - /var/run/docker.sock:/tmp/docker.sock:ro
 mysqldb:
