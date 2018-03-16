@@ -57,8 +57,8 @@ nginx-proxy:
    ports:
     - "080:80"
     - "443:443"
-#   links:
-#       - app
+   links:
+       - app
    volumes:
      - /var/run/docker.sock:/tmp/docker.sock:ro
 #     - /root/docker-data:/appdata
