@@ -45,6 +45,8 @@ app:
       - "4444:4444"
       - "5900:5900"
       - "18000:8000"
+   expose:
+    - "8000"
    environment:
     - VIRTUAL_HOST=wx.chutiantech.win
    # auto add record in /etc/hosts
