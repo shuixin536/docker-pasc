@@ -45,6 +45,8 @@ app:
       - "4444:4444"
       - "5900:5900"
       - "18000:8000"
+   environment:
+    - VIRTUAL_HOST=wx.chutiantech.win
    # auto add record in /etc/hosts
    # 172.17.2.186  mysqldb
    links:
@@ -55,14 +57,15 @@ nginx-proxy:
    image: jwilder/nginx-proxy
    container_name: nginx-proxy
    ports:
-    - "080:80"
+    - "80:80"
     - "443:443"
    links:
        - app
    volumes:
      - /var/run/docker.sock:/tmp/docker.sock:ro
      - /root/docker-data:/appdata
-     - /root/docker-data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+     - /root/docker-data/nginx/certs:/etc/nginx/certs
+#     - /root/docker-data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 mysqldb:
    image: centurylink/mysql
    ports:

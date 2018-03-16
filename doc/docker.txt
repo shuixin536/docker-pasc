@@ -45,6 +45,7 @@ docker rm -f $(docker ps -a | grep 'jwilder/nginx-proxy' | awk '{print $1}') && 
 
 1. digitalocean 
 2. centos 7emailssh
+2-1. http://get.daocloud.io/#install-docker
 3. yum -y install docker
 service docker start
 chkconfig docker on
