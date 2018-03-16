@@ -48,6 +48,7 @@ app:
    environment:
     - VIRTUAL_HOST=wx.chutiantech.win
     - VIRTUAL_PORT=8000
+    - VIRTUAL_PROTO=https
    # auto add record in /etc/hosts
    # 172.17.2.186  mysqldb
    links:
