@@ -1,6 +1,6 @@
 # Delete every Docker containers
 # Must be run first because images are attached to containers
-docker rm -f $(docker ps -a | grep 'jwilder/nginx-proxy' | awk '{print $1}')
+docker rm -f $(docker ps -a -q)
 
 # Delete every Docker image
 docker rmi -f $(docker images -q)
@@ -12,7 +12,7 @@ docker rmi -f $(docker images | grep '^<none>' | awk '{print $3}')
 
 docker rm -f $(docker ps -a -q)
 
-
+docker rm -f $(docker ps -a | grep 'jwilder/nginx-proxy' | awk '{print $1}')
 
 
 
@@ -41,3 +41,24 @@ docker-error-var-run-docker-sock-no-such-file-or-directory
 
 
 docker rm -f $(docker ps -a | grep 'jwilder/nginx-proxy' | awk '{print $1}') && docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro  -v /root/docker-data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro jwilder/nginx-proxy && docker ps -a
+
+
+1. digitalocean 
+2. centos 7emailssh
+3. yum -y install docker
+service docker start
+chkconfig docker on
+4. yum install git
+5. yum install bzip2
+6. centos_env.sh
+7. vi /usr/bin/yum 
+change python to python_old
+
+8. vi /etc/profile
+export PATH="/opt/conda/bin:${PATH}"
+
+9. docker_compose_version=1.13.0
+curl -L https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+10 docke-compose up -d && docker-compose ps
