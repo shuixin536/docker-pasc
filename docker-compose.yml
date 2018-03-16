@@ -45,10 +45,9 @@ app:
       - "4444:4444"
       - "5900:5900"
       - "18000:8000"
-   expose:
-    - "8000"
    environment:
     - VIRTUAL_HOST=wx.chutiantech.win
+    - VIRTUAL_PORT=8000
    # auto add record in /etc/hosts
    # 172.17.2.186  mysqldb
    links:
