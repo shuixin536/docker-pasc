@@ -63,3 +63,16 @@ curl -L https://github.com/docker/compose/releases/download/${docker_compose_ver
 chmod +x /usr/local/bin/docker-compose
 
 10 docke-compose up -d && docker-compose ps
+
+11.0 SELinux 
+sudo setenforce 0
+11.niginx  docker-compose logs | grep nginx ngigxPermission decysetforce
+selinux setenforce 0
+setenforce 0
+SELinux permissive selinux
+http://blog.csdn.net/white__cat/article/details/26235097
+
+
+12. djangosettings.pyALLOWED_HOSTS = ['*']
+django python manager.py runserver 0.0.0.0:8000
+0.0.0.0127.0.0.1docker -p 
