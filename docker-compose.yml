@@ -46,7 +46,7 @@ app:
       - "5900:5900"
       - "18000:8000"
    environment:
-    - VIRTUAL_HOST=wx.chutiantech.win
+    - VIRTUAL_HOST=wx.chutiantech.win,wx.jionghe.top
     - VIRTUAL_PORT=8000
 #    - VIRTUAL_PROTO=https
    # auto add record in /etc/hosts
