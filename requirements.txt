@@ -6,3 +6,5 @@ django
 djangorestframework
 drfdocs
 django-rest-swagger
+dwebsocket
+wechatpy
