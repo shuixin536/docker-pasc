@@ -9,3 +9,4 @@ django-rest-swagger
 dwebsocket
 wechatpy
 #selenium-requests
+aiohttp
