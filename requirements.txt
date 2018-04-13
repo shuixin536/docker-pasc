@@ -10,3 +10,4 @@ dwebsocket
 wechatpy
 #selenium-requests
 aiohttp
+pyecharts
