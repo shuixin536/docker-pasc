@@ -11,3 +11,4 @@ wechatpy
 #selenium-requests
 aiohttp
 pyecharts
+pyspider
